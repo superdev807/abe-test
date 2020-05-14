@@ -1,0 +1,75 @@
+@import 'mixins';
+@import 'variables';
+
+.headerWrapper {
+    top: 0px;
+    width: 100%;
+    height: 90px;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $bg-header;
+}
+
+.logoIcon {
+    width: 90px;
+    height: 40px;
+}
+
+.menuList {
+    padding: 16px 0px 0px 0px;
+    margin-left: 30px;
+}
+
+.menuItem {
+    display: inline;
+    margin-left: 28px;
+    cursor: pointer;
+    &:first-child {
+        margin-left: 0px;
+    }
+
+    &Selected {
+        color: #0C40FC;
+        font-weight: bold;
+    }
+}
+
+.buttonGroup {
+    margin-left: 90px;
+    display: flex;
+    flex-direction: row;
+}
+
+.buttonNormal {
+    border: 2px solid #F2F4F5;
+    border-radius: 8px;
+    font-size: 15px;
+    line-height: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Regular Pro Semibold' !important;
+}
+
+.buttonLogin {
+    width: 110px;
+    height: 50px;
+    color: #001D29;
+    background-color: white;
+    margin-right: 10px;
+    text-transform: capitalize;
+}
+
+.buttonJoin {
+    width: 120px;
+    height: 50px;
+    color: white;
+    background-color: #0C40FC;
+    text-transform: capitalize;
+}
+
+.bodyContent {
+    display: flex;
+}

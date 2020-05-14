@@ -1,0 +1,6 @@
+jsxBracketSameLine: true
+printWidth: 140
+semi: true
+singleQuote: false
+tabWidth: 4
+useTabs: false

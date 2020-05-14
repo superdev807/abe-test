@@ -1,0 +1,34 @@
+@import 'mixins';
+@import 'variables';
+
+.app {
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    min-height: 100%;
+    padding: 0 0px;
+    flex-direction: column;
+    align-items: center;
+    background: white;
+}
+
+.content {
+    flex: 1 0 auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: #F9FAFA;
+    border: 1px solid #eee;
+
+    @include respond-to('xl') {
+        width: 1440px;
+    }
+}
+
+.bodyContent {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
