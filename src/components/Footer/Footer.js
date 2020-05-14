@@ -7,13 +7,9 @@ import IconAbeLogo from "~/icons/IconAbeLogo";
 import Button from "@material-ui/core/Button";
 const cx = classNames.bind(styles);
 
-const Header = () => {
-    const history = useHistory();
-    const onHowToBet = pageUrl => () => {
-        history.push(pageUrl);
-    };
+const Footer = () => {
     return (
-        <div className={styles.headerWrapper}>
+        <div className={styles.footerWrapper}>
             <IconAbeLogo className={styles.logoIcon} />
             <ul className={styles.menuList}>
                 <li className={styles.menuItem}>Odds</li>
@@ -35,4 +31,4 @@ const Header = () => {
     );
 };
 
-export default Header;
+export default Footer;

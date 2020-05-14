@@ -1,0 +1,29 @@
+.searchBar {
+    width: 280px;
+    height: 46px;
+    box-shadow: inset 0px 1px 2px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 174px;
+}
+
+.searchRoot {
+    margin-right: 17px;
+    width: 210px;;
+}
+
+.searchInput {
+    font-size: 16px;
+    line-height: 20px;
+    font-family: Barlow;
+    font-style: normal;
+    font-weight: normal;
+}
+
+.searchIcon {
+    width: 15px !important;
+    height: 15px !important;
+}

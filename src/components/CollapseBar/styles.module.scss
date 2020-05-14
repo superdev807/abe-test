@@ -1,0 +1,59 @@
+.collapseBar {
+    width: 100%;
+    border-radius: 0px 10px 10px 0px;
+    border: 1px solid #F2F4F5;
+    box-sizing: border-box;
+    background: #fff;
+    margin-top: 22px;
+}
+
+.menu {
+    color: #001D29;
+    width: 100%;
+    padding: 30px 50px 30px 174px;
+
+    &__title {
+        font-family: "Regular Pro bold";
+        font-size: 25px;
+        line-height: 28px;
+        padding-right: 35px;
+
+        &--opened {
+            color: #0C40FC !important;
+        }
+    }
+
+    &__description {
+        font-family: Barlow;
+        font-size: 18px;
+        color: #001D29;
+        opacity: 0.5;
+        font-weight: 300;
+        font-style: normal;
+        line-height: 22px;
+        margin-top: 12px;
+        margin-bottom: 25px;
+    }
+
+    &__subItem {
+        font-family: Barlow;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 20px;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        margin-bottom: 15px;
+
+        &--opened {
+            color: #0C40FC !important;
+        }
+    }
+
+    &--opened {
+        border: 1px solid #F2F4F5;
+        box-sizing: border-box;
+        box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12);
+        border-radius: 0px 10px 10px 0px;
+    }
+}
