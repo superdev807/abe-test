@@ -5,6 +5,4 @@ const ErrorPage = () => {
     return <section className={styles.errorPage}>Something's wrong</section>;
 };
 
-ErrorPage.propTypes = {};
-
 export default ErrorPage;

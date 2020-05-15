@@ -11,7 +11,7 @@
 .menu {
     color: #001D29;
     width: 100%;
-    padding: 30px 50px 30px 174px;
+    padding: 30px 50px 30px calc(100% - 286px);
 
     &__title {
         font-family: "Regular Pro bold";

@@ -2,7 +2,7 @@
 @import 'variables';
 
 .sideBar {
-    width: 460px;
+    width: calc(100% - 652px);
     height: 100%;
     padding: 0px;
     top: 123px;

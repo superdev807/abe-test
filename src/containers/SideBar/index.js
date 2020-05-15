@@ -4,11 +4,14 @@ import React from "react";
 import SearchBar from "~/components/SearchBar";
 import CollapseBar from "~/components/CollapseBar";
 import styles from "./styles.module";
-export default function SideBar() {
+
+const SideBar = () => {
     return (
         <div className={styles.sideBar}>
             <SearchBar />
             <CollapseBar />
         </div>
     );
-}
+};
+
+export default SideBar;

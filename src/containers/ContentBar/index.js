@@ -6,7 +6,7 @@ import NewsLetterCompact from "~/components/NewsLetterCompact";
 import MiniCard from "~/components/MiniCard";
 import IconUp from "~/resource/icons/IconUp";
 import styles from "./styles.module";
-export default function ContentBar({ markDownText, nextTitle }) {
+const ContentBar = ({ markDownText, nextTitle }) => {
     const scrollUp = () => {
         window.scrollTo(0, 0);
     };
@@ -29,4 +29,6 @@ export default function ContentBar({ markDownText, nextTitle }) {
             {nextTitle && <IconUp className={styles.iconUp} onClick={scrollUp} />}
         </div>
     );
-}
+};
+
+export default ContentBar;

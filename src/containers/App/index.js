@@ -14,7 +14,7 @@ import sportsBettingBasics from "~/utils/data/how-to-bet/sportsBettingBasics";
 import advancedBettingConcepts from "~/utils/data/how-to-bet/advancedBettingConcept";
 import sportsBettingMarket from "~/utils/data/how-to-bet/sportsBettingMarket";
 
-export default function App() {
+const App = () => {
     return (
         <div className={styles.app}>
             <div className={styles.content}>
@@ -46,4 +46,6 @@ export default function App() {
             </div>
         </div>
     );
-}
+};
+
+export default App;
