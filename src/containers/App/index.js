@@ -1,7 +1,7 @@
 // This is shared across all pages
 
-import React from "react";
-import { Switch, Route } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Switch, Route, Redirect, useLocation } from "react-router-dom";
 import SideBar from "~/containers/SideBar/Loadable";
 import ContentBar from "~/containers/ContentBar/Loadable";
 import ErrorPage from "~/containers/ErrorPage";
@@ -16,6 +16,11 @@ import advancedBettingConcepts from "~/utils/data/how-to-bet/advancedBettingConc
 import sportsBettingMarket from "~/utils/data/how-to-bet/sportsBettingMarket";
 
 const App = () => {
+    const location = useLocation();
+    useEffect(() => {
+        document.documentElement.scrollTop = 0;
+    }, [location.pathname]);
+
     return (
         <div className={styles.app}>
             <div className={styles.content}>
@@ -27,7 +32,7 @@ const App = () => {
                             exact
                             path="/how-to-bet/betting/basics"
                             hash=""
-                            component={() => <ContentBar markDownText={sportsBettingBasics} />}
+                            component={() => <ContentBar markDownText={sportsBettingBasics} nextTitle={"betting odds"} />}
                         />
                         <Route
                             exact
@@ -35,12 +40,9 @@ const App = () => {
                             component={() => <ContentBar markDownText={sportsBettingMarket} />}
                         />
                         <Route exact path="/how-to-bet/betting" component={() => <ContentBar markDownText={betting101} />} />
-                        <Route
-                            exact
-                            path="/how-to-bet/advanced"
-                            component={() => <ContentBar markDownText={advancedBettingConcepts} nextTitle={"betting odds"} />}
-                        />
+                        <Route exact path="/how-to-bet/advanced" component={() => <ContentBar markDownText={advancedBettingConcepts} />} />
                         <Route exact path="/how-to-bet" component={() => <ContentBar markDownText={howToBet} />} />
+                        <Route exact path="/" render={() => <Redirect to="/how-to-bet" />} />
                         <Route path="" component={ErrorPage} />
                     </Switch>
                 </div>

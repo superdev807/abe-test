@@ -1,4 +1,10 @@
 import React, { useState, useEffect } from "react";
+import ExpansionPanel from "@material-ui/core/ExpansionPanel";
+import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
+import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
+import Typography from "@material-ui/core/Typography";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+
 import { useHistory } from "react-router-dom";
 import classNames from "classnames/bind";
 import styles from "./styles.module";
@@ -9,65 +15,60 @@ const checkUrl = () => {
     const hashLink = window.location.hash;
     const orgUrl = pathName + hashLink;
     for (let i = 0; i < menuList.length; ++i) {
-        for (let j = 0; j < menuList[i].length; ++j) {
-            if (menuList[i][j].url == orgUrl) {
-                return { url: orgUrl, menuItem: i, subItem: j };
+        if (menuList[i].url === orgUrl) {
+            return {
+                menuItem: menuList[i].title,
+                subItem: false
+            };
+        }
+        for (let j = 0; j < menuList[i].subItems.length; ++j) {
+            if (menuList[i].subItems[j].url == orgUrl) {
+                return {
+                    menuItem: menuList[i].title,
+                    subItem: menuList[i].subItems[j].title
+                };
             }
         }
     }
-    return { url: orgUrl, menuItem: -1, subItem: -1 };
+    return { menuItem: false, subItem: false };
 };
 
 const menuList = [
-    [
-        {
-            title: "Betting 101",
-            description: "We'll put on the path to becoming a successful sports bettor",
-            opened: true,
-            selected: false,
-            url: "/how-to-bet/betting"
-        },
-        { title: "SPORTS BETTING BASICS", selected: false, url: "/how-to-bet/betting/basics" },
-        { title: "BETTING ODDS", selected: false, url: "/how-to-bet/betting/betting-odds" },
-        { title: "COMPARING ODDS", selected: false, url: "/how-to-bet/betting/comparing-odds" },
-        { title: "ONSHORE SPORTSBOOKS", selected: false, url: "/how-to-bet/bettig/onshore-sportsbooks" },
-        { title: "IN-GAME BETTING", selected: false, url: "/how-to-bet/betting/in-game-betting" },
-        { title: "TIPS FROM THE SHARPS", selected: false, url: "/how-to-bet/betting/tips-from-sharps" },
-        { title: "GLOSSARY", selected: false, url: "/how-to-bet/betting/glossary" }
-    ],
-    [
-        {
-            title: "Advanced Betting Concepts",
-            description: "Take your sports betting game to the next level with advice from the props",
-            opened: false,
-            selected: false,
-            url: "/how-to-bet/advanced"
-        },
-        { title: "SPORTS BETTING MARKET", selected: false, url: "/how-to-bet/advanced/sports-betting-market" },
-        { title: "IMPLIED PROBABILITY", selected: false, url: "/how-to-bet/advanced/implied-probability" },
-        { title: `"SYNTHETIC HOLD"`, selected: false, url: "/how-to-bet/advanced/synthetic-hold" },
-        { title: "WEAK VS. STRONG", selected: false, url: "/how-to-bet/advanced/weak-vs-strong" }
-    ]
+    {
+        title: "Betting 101",
+        description: "We'll put on the path to becoming a successful sports bettor",
+        url: "/how-to-bet/betting",
+        subItems: [
+            { title: "SPORTS BETTING BASICS", url: "/how-to-bet/betting/basics" },
+            { title: "BETTING ODDS", url: "/how-to-bet/betting/betting-odds" },
+            { title: "COMPARING ODDS", url: "/how-to-bet/betting/comparing-odds" },
+            { title: "ONSHORE SPORTSBOOKS", url: "/how-to-bet/bettig/onshore-sportsbooks" },
+            { title: "IN-GAME BETTING", url: "/how-to-bet/betting/in-game-betting" },
+            { title: "TIPS FROM THE SHARPS", url: "/how-to-bet/betting/tips-from-sharps" },
+            { title: "GLOSSARY", url: "/how-to-bet/betting/glossary" }
+        ]
+    },
+    {
+        title: "Advanced Betting Concepts",
+        description: "Take your sports betting game to the next level with advice from the props",
+        url: "/how-to-bet/advanced",
+        subItems: [
+            { title: "SPORTS BETTING MARKET", url: "/how-to-bet/advanced/sports-betting-market" },
+            { title: "IMPLIED PROBABILITY", url: "/how-to-bet/advanced/implied-probability" },
+            { title: `"SYNTHETIC HOLD"`, url: "/how-to-bet/advanced/synthetic-hold" },
+            { title: "WEAK VS. STRONG", url: "/how-to-bet/advanced/weak-vs-strong" }
+        ]
+    }
 ];
 
 const CollapseBar = () => {
-    const [menuItem, selectMenuItem] = useState(-1);
-    const [subItem, selectSubItem] = useState(-1);
-    const history = useHistory();
-    const menuItemSelect = (menuNum, itemNum) => {
-        if (menuItem >= 0 && subItem >= 0) {
-            menuList[menuItem][subItem].selected = false;
-            menuList[menuItem][0].opened = false;
-        }
-        if (menuNum >= 0 && itemNum >= 0) {
-            menuList[0][0].opened = false;
-            menuList[menuNum][itemNum].selected = true;
-            menuList[menuNum][0].opened = true;
-        }
-        if (menuNum < 0) menuList[0][0].opened = true;
-        selectMenuItem(menuNum);
-        selectSubItem(itemNum);
+    const [expanded, setExpanded] = useState(false);
+    const [subItem, setSubItem] = useState(false);
+
+    const handleChange = panel => () => {
+        setExpanded(panel);
     };
+    const history = useHistory();
 
     const menuItemClick = url => () => {
         history.push(url);
@@ -75,37 +76,36 @@ const CollapseBar = () => {
 
     useEffect(() => {
         const menuFromURL = checkUrl();
-        menuItemSelect(menuFromURL.menuItem, menuFromURL.subItem, menuFromURL.url);
+        setExpanded(menuFromURL.menuItem);
+        setSubItem(menuFromURL.subItem);
     }, [window.location.href]);
 
     return (
         <div className={styles.collapseBar}>
-            {menuList.map((menu, index) => {
-                return (
-                    <div className={cx("menu", menu[0].opened ? "menu--opened" : "")} key={`sub-${index}`}>
-                        {
+            {menuList.map((menu, index) => (
+                <ExpansionPanel
+                    key={`panel-${index}`}
+                    expanded={expanded === menu.title}
+                    onChange={handleChange(menu.title)}
+                    classes={{ root: cx("menu", expanded === menu.title ? "menu--opened" : "") }}>
+                    <ExpansionPanelSummary
+                        className={cx("menu__title", expanded === menu.title ? "menu__title--opened" : "")}
+                        onClick={menuItemClick(menu.url)}>
+                        {menu.title}
+                    </ExpansionPanelSummary>
+                    <ExpansionPanelDetails className={cx("menu__panel")}>
+                        <div className={cx("menu__description")}>{menu.description}</div>
+                        {menu.subItems.map((menuItem, subIndex) => (
                             <div
-                                className={cx("menu__title", menu[0].selected ? "menu__title--opened" : "")}
-                                onClick={menuItemClick(menu[0].url)}>
-                                {menu[0].title}
+                                key={`subItem-${subIndex}`}
+                                className={cx("menu__subItem", menuItem.title === subItem ? "menu__subItem--opened" : "")}
+                                onClick={menuItemClick(menuItem.url)}>
+                                {menuItem.title}
                             </div>
-                        }
-                        {menu[0].opened && <div className={cx("menu__description")}>{menu[0].description}</div>}
-                        {menu[0].opened &&
-                            menu.map((menuItem, subIndex) => {
-                                if (!subIndex) return null;
-                                return (
-                                    <div
-                                        key={`subItem-${subIndex}`}
-                                        className={cx("menu__subItem", menuItem.selected ? "menu__subItem--opened" : "")}
-                                        onClick={menuItemClick(menuItem.url)}>
-                                        {menuItem.title}
-                                    </div>
-                                );
-                            })}
-                    </div>
-                );
-            })}
+                        ))}
+                    </ExpansionPanelDetails>
+                </ExpansionPanel>
+            ))}
         </div>
     );
 };

@@ -29,8 +29,7 @@ const ContentBar = ({ markDownText, nextTitle }) => {
             )}
             {nextTitle && (
                 <div className={styles.advancedNext} data-testid="next-title">
-                    {" "}
-                    {`next: ${nextTitle}`}{" "}
+                    {`next: ${nextTitle}`}
                 </div>
             )}
             {nextTitle && <IconUp className={styles.iconUp} onClick={scrollUp} data-testid="scroll-up" />}

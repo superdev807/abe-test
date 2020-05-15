@@ -5,7 +5,8 @@
     font-style: normal;
     font-weight: bold;
     src: 
-        url('../resource/fonts/Regular-Bold.otf') format('opentype');
+        url('../resource/fonts/Regular-Bold.otf') format('opentype'),  url("../resource/fonts/Regular-BoldWEB.woff") format("woff"),
+        url("../resource/fonts/Regular-BoldWEB.woff2") format("woff2");
 }
 
 @font-face {
@@ -13,12 +14,14 @@
     font-style: italic;
     font-weight: normal;
     src: 
-        url('../resource/fonts/Regular-RegularItalic.otf') format('opentype');
+        url('../resource/fonts/Regular-RegularItalic.otf') format('opentype'), url("../resource/fonts/Regular-RegularItalicWEB.woff") format("woff"),
+        url("../resource/fonts/Regular-RegularItalicWEB.woff2") format("woff2");
 }
 
 @font-face {
     font-family: 'Regular Pro Regular';
-    src: url('../resource/fonts/Regular-Regular.otf') format('opentype');
+    src: url('../resource/fonts/Regular-Regular.otf') format('opentype'),  url("../resource/fonts/Regular-RegularWEB.woff") format("woff"),
+    url("../resource/fonts/Regular-RegularWEB.woff2") format("woff2");
 }
 
 @font-face {
@@ -26,7 +29,8 @@
     font-style: normal;
     font-weight: 600;
     src:
-        url('../resource/fonts/Regular-Semibold.otf') format('opentype');
+        url('../resource/fonts/Regular-Semibold.otf') format('opentype'), url("../resource/fonts/Regular-SemiboldWEB.woff") format("woff"),
+        url("../resource/fonts/Regular-SemiboldWEB.woff2") format("woff2");
 }
 
 html, body {
@@ -112,4 +116,8 @@ p {
 code {
     font-family: "Regular Pro SemiBold" !important;
     color: #0C40FC;
+    & i {
+        font-family: "Regular Pro SemiBold", "Regular Pro Italic" !important;
+        font-weight: bold;
+    }
 }

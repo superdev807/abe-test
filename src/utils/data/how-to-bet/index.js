@@ -19,7 +19,7 @@ abe’s fun and fast sports betting tutorial course helps users learn all they n
 
 Betting makes watching sports more exciting, gives you something new to debate with friends and lets you prove your sports-brain superiority to the world.
 
-In a <code>2019 interview on NPR's Fresh Air</code>, actor/comedian Adam Sandler described the sheer excitement of sports betting to host Terry Gross.
+In a <code>2019 interview on NPR's <i>Fresh Air</i></code>, actor/comedian Adam Sandler described the sheer excitement of sports betting to host Terry Gross.
 
 "When you bet on a game, [and] I do bet sometimes," Sandler said, "you watch so close when you have money on a game, and it means something to you. [But] it's not only the money. You made this decision in your head. You told everyone on the planet, this is going to happen."
 
