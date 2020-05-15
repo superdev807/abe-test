@@ -5,7 +5,7 @@
     font-style: normal;
     font-weight: bold;
     src: 
-        url('../fonts/Regular-Bold.otf') format('opentype');
+        url('../resource/fonts/Regular-Bold.otf') format('opentype');
 }
 
 @font-face {
@@ -13,12 +13,12 @@
     font-style: italic;
     font-weight: normal;
     src: 
-        url('../fonts/Regular-RegularItalic.otf') format('opentype');
+        url('../resource/fonts/Regular-RegularItalic.otf') format('opentype');
 }
 
 @font-face {
     font-family: 'Regular Pro Regular';
-    src: url('../fonts/Regular-Regular.otf') format('opentype');
+    src: url('../resource/fonts/Regular-Regular.otf') format('opentype');
 }
 
 @font-face {
@@ -26,7 +26,7 @@
     font-style: normal;
     font-weight: 600;
     src:
-        url('../fonts/Regular-Semibold.otf') format('opentype');
+        url('../resource/fonts/Regular-Semibold.otf') format('opentype');
 }
 
 html, body {
@@ -56,4 +56,60 @@ body.fontLoaded {
 p, label {
     font-family: $body-font;
     line-height: 1.5em;
+}
+
+h1 {
+    font-size: 50px !important;
+    line-height: 54px !important;
+    font-family: "Regular Pro Bold";
+    margin-top: 0px !important;
+    margin-bottom: 15px !important;
+    width: 600px;
+}
+
+h2 {
+    font-size: 28px !important;
+    line-height: 32px !important;
+    font-family: "Regular Pro Bold";
+    margin-top: 0px !important;
+    margin-bottom: 0px;
+}
+
+h4 {
+    font-family: Barlow;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 28px;
+    color: #001D29;
+    margin: 0px;
+    width: 600px;
+    margin-bottom: 10px !important;
+}
+
+h3 {
+    font-family: "Regular Pro Bold";
+    font-size: 24px;
+    line-height: 28px;
+    color: #001D29;
+    margin: 0px;
+    width: 600px;
+    margin-bottom: 25px !important;
+}
+
+p {
+    font-family: Barlow;
+    font-style: normal;
+    font-weight: 10;
+    font-size: 18px;
+    line-height: 26px;
+    color: #001D29;
+    margin: 0px;
+    width: 600px;
+    margin-bottom: 25px !important;
+}
+
+code {
+    font-family: "Regular Pro SemiBold" !important;
+    color: #0C40FC;
 }

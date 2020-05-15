@@ -1,10 +1,32 @@
 // This is shared across all pages
 
-import React, { useEffect } from "react";
-import { Switch, Route, useHistory, Redirect, useLocation } from "react-router-dom";
-import SideBar from "~/containers/SideBar";
-import Header from "~/components/Header";
+import React, { useRef } from "react";
+import Markdown from "markdown-to-jsx";
+import NewsLetterCompact from "~/components/NewsLetterCompact";
+import MiniCard from "~/components/MiniCard";
+import IconUp from "~/resource/icons/IconUp";
 import styles from "./styles.module";
-export default function ContentBar() {
-    return <div className={styles.contentBar}></div>;
+export default function ContentBar({ markDownText, nextTitle }) {
+    const scrollUp = () => {
+        window.scrollTo(0, 0);
+    };
+    return (
+        <div className={styles.contentBar}>
+            <Markdown
+                children={markDownText}
+                options={{
+                    overrides: {
+                        NewsLetterCompact: {
+                            component: NewsLetterCompact
+                        },
+                        MiniCard: {
+                            component: MiniCard
+                        }
+                    }
+                }}
+            />
+            {nextTitle && <div className={styles.advancedNext}> {`next: ${nextTitle}`} </div>}
+            {nextTitle && <IconUp className={styles.iconUp} onClick={scrollUp} />}
+        </div>
+    );
 }

@@ -2,7 +2,7 @@
 
 import React from "react";
 import InputBase from "@material-ui/core/InputBase";
-import IconSearchBar from "~/icons/IconSearchBar";
+import IconSearchBar from "~/resource/icons/IconSearchBar";
 import styles from "./styles.module";
 
 const SearchBar = () => {

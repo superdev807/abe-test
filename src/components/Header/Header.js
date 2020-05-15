@@ -3,7 +3,7 @@ import classNames from "classnames/bind";
 import { useHistory } from "react-router-dom";
 
 import styles from "./styles.module";
-import IconAbeLogo from "~/icons/IconAbeLogo";
+import IconAbeLogo from "~/resource/icons/IconAbeLogo";
 import Button from "@material-ui/core/Button";
 const cx = classNames.bind(styles);
 

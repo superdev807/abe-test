@@ -9,7 +9,7 @@
     padding: 0 0px;
     flex-direction: column;
     align-items: center;
-    background: white;
+    background: #e5e5e5;
 }
 
 .content {
@@ -19,7 +19,7 @@
     flex-direction: column;
     height: 100%;
     background: #F9FAFA;
-    border: 1px solid #eee;
+    position: relative;
 
     @include respond-to('xl') {
         width: 1440px;
