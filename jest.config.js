@@ -6,14 +6,17 @@ module.exports = {
         "!src/**/*.test.{js,jsx}",
         "!src/index.js",
         "!src/styles/global-styles.js",
-        "!src/*/*/Loadable.{js,jsx}"
+        "!src/*/*/Loadable.{js,jsx}",
+        "!src/containers/App/index.js",
+        "!src/config/*.*",
+        "!src/utils/*.*"
     ],
     coverageThreshold: {
         global: {
-            statements: 98,
-            branches: 91,
-            functions: 98,
-            lines: 98
+            statements: 80,
+            branches: 75,
+            functions: 80,
+            lines: 80
         }
     },
     moduleFileExtensions: [...defaults.moduleFileExtensions, "scss"],

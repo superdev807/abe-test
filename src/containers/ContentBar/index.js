@@ -11,22 +11,29 @@ const ContentBar = ({ markDownText, nextTitle }) => {
         window.scrollTo(0, 0);
     };
     return (
-        <div className={styles.contentBar}>
-            <Markdown
-                children={markDownText}
-                options={{
-                    overrides: {
-                        NewsLetterCompact: {
-                            component: NewsLetterCompact
-                        },
-                        MiniCard: {
-                            component: MiniCard
+        <div className={styles.contentBar} data-testid="content-bar">
+            {markDownText && (
+                <Markdown
+                    children={markDownText}
+                    options={{
+                        overrides: {
+                            NewsLetterCompact: {
+                                component: NewsLetterCompact
+                            },
+                            MiniCard: {
+                                component: MiniCard
+                            }
                         }
-                    }
-                }}
-            />
-            {nextTitle && <div className={styles.advancedNext}> {`next: ${nextTitle}`} </div>}
-            {nextTitle && <IconUp className={styles.iconUp} onClick={scrollUp} />}
+                    }}
+                />
+            )}
+            {nextTitle && (
+                <div className={styles.advancedNext} data-testid="next-title">
+                    {" "}
+                    {`next: ${nextTitle}`}{" "}
+                </div>
+            )}
+            {nextTitle && <IconUp className={styles.iconUp} onClick={scrollUp} data-testid="scroll-up" />}
         </div>
     );
 };

@@ -1,9 +1,10 @@
 // This is shared across all pages
 
-import React, { useEffect } from "react";
-import { Switch, Route, useHistory, Redirect, useLocation } from "react-router-dom";
+import React from "react";
+import { Switch, Route } from "react-router-dom";
 import SideBar from "~/containers/SideBar/Loadable";
 import ContentBar from "~/containers/ContentBar/Loadable";
+import ErrorPage from "~/containers/ErrorPage";
 import Header from "~/components/Header";
 import Footer from "~/components/Footer";
 import styles from "./styles.module";
@@ -40,6 +41,7 @@ const App = () => {
                             component={() => <ContentBar markDownText={advancedBettingConcepts} nextTitle={"betting odds"} />}
                         />
                         <Route exact path="/how-to-bet" component={() => <ContentBar markDownText={howToBet} />} />
+                        <Route path="" component={ErrorPage} />
                     </Switch>
                 </div>
                 <Footer />

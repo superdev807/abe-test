@@ -18,7 +18,7 @@ const Header = () => {
             <ul className={styles.menuList}>
                 <li className={styles.menuItem}>Odds</li>
                 <li className={styles.menuItem}>Futures</li>
-                <li className={cx(styles.menuItem, styles.menuItemSelected)} onClick={onHowToBet("/how-to-bet")}>
+                <li className={cx(styles.menuItem, styles.menuItemSelected)} onClick={onHowToBet("/how-to-bet")} data-testid="how-to-bet">
                     How To Bet
                 </li>
                 <li className={styles.menuItem}>Leagues</li>
