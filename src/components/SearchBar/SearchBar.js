@@ -1,5 +1,3 @@
-// This is shared across all pages
-
 import React from "react";
 import InputBase from "@material-ui/core/InputBase";
 import IconSearchBar from "~/resource/icons/IconSearchBar";

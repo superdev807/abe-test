@@ -1,5 +1,3 @@
-// This is shared across all pages
-
 import React from "react";
 import SearchBar from "~/components/SearchBar";
 import CollapseBar from "~/components/CollapseBar";

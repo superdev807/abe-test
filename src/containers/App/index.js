@@ -1,5 +1,3 @@
-// This is shared across all pages
-
 import React, { useEffect } from "react";
 import { Switch, Route, Redirect, useLocation } from "react-router-dom";
 import SideBar from "~/containers/SideBar/Loadable";

@@ -2,7 +2,6 @@ import React from "react";
 import { render } from "react-dom";
 import { Router } from "react-router-dom";
 import { StylesProvider } from "@material-ui/core/styles";
-import FontFaceObserver from "fontfaceobserver";
 
 import App from "~/containers/App";
 import history from "~/utils/history";
@@ -14,7 +13,6 @@ import "sanitize.css/sanitize.css";
 // Load the favicon file
 import "!file-loader?name=[name].[ext]!../assets/favicon.ico";
 
-// Create redux store with historys
 render(
     <StylesProvider>
         <ThemeProvider theme={muiTheme}>

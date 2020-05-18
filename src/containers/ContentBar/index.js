@@ -1,6 +1,4 @@
-// This is shared across all pages
-
-import React, { useRef } from "react";
+import React from "react";
 import Markdown from "markdown-to-jsx";
 import NewsLetterCompact from "~/components/NewsLetterCompact";
 import MiniCard from "~/components/MiniCard";
