@@ -14,14 +14,6 @@ import "sanitize.css/sanitize.css";
 // Load the favicon file
 import "!file-loader?name=[name].[ext]!../assets/favicon.ico";
 
-// Observe loading of Montserrat
-const montserratObserver = new FontFaceObserver("Montserrat", {});
-
-// When Montserrat is loaded, add a font-family using Montserrat to the body
-montserratObserver.load().then(() => {
-    document.body.classList.add("fontLoaded");
-});
-
 // Create redux store with historys
 render(
     <StylesProvider>
