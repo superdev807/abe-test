@@ -36,7 +36,7 @@
         "hoist-non-react-statics": "3.3.2",
         "immer": "5.3.6",
         "invariant": "2.2.4",
-        "lodash": "4.17.15",
+        "lodash": "4.17.21",
         "markdown-to-jsx": "^6.11.1",
         "prop-types": "15.7.2",
         "react": "16.12.0",
