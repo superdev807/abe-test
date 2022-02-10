@@ -89,7 +89,7 @@
         "jest-cli": "^25.1.0",
         "jest-transform-css": "^2.0.0",
         "jest-transform-stub": "^2.0.0",
-        "node-sass": "^4.13.1",
+        "node-sass": "^7.0.0",
         "onchange": "^6.1.0",
         "prettier": "^1.19.1",
         "react-hooks-testing-library": "^0.6.0",
